@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Calculations.ConsoleClient/Calculations.ConsoleClient.csproj" />
+  <Project Path="Calculations.Tests/Calculations.Tests.csproj" />
+  <Project Path="Calculations/Calculations.csproj" />
+</Solution>
