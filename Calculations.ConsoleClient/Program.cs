@@ -17,7 +17,35 @@ namespace Calculations.ConsoleClient
         {
             while (true)
             {
-                throw new NotImplementedException();
+                Console.Write("Enter n (or 'exit' to quit): ");
+
+                string? input = Console.ReadLine();
+
+                if (input == "exit")
+                {
+                    break;
+                }
+
+                if (!int.TryParse(input, out int n) || n <= 0)
+                {
+                    Console.WriteLine("Please enter a positive integer.");
+                    continue;
+                }
+
+                using CancellationTokenSource cts = new ();
+
+                try
+                {
+                    Console.WriteLine($"Calculating sum from 1 to {n}...");
+
+                    long result = await Calculator.CalculateSumAsync(n, cts.Token);
+
+                    Console.WriteLine($"Result:{result}");
+                }
+                catch (OperationCanceledException)
+                {
+                    Console.WriteLine("Calculation was canceled.");
+                }
             }
         }
     }
